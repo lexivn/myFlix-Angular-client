@@ -122,8 +122,7 @@ export class FetchApiDataService {
     );
   }
 
-
-  //  Making the api call for the Delete User endpoint  
+  //  Making the api call for the delete user
   deleteUser(): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const token = localStorage.getItem('token');
@@ -137,6 +136,24 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
+
+
+  //  Making the api call to delete a movie from the User favorite movie list 
+  deleteMovie(movie_id: string): Observable<any> {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const token = localStorage.getItem('token');
+    return this.http.delete(apiUrl + `users/${user.Username}/movies/${movie_id}`, {
+      headers: new HttpHeaders(
+        {
+          Authorization: 'Bearer ' + token,
+        })
+    }).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+
 
 
   // Non-typed response extraction
