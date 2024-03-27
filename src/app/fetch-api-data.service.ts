@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'https://mobiflix.netlify.app';
+const apiUrl = 'http://moviesflix-99590597ee12.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class FetchApiDataService {
    */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
-    return this.http.post(apiUrl + 'users', userDetails).pipe(
+    return this.http.post(apiUrl + '/users', userDetails).pipe(
       catchError(this.handleError)
     );
   }
@@ -31,7 +31,7 @@ export class FetchApiDataService {
   // Making the api call for user login endpoint
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
-    return this.http.post(apiUrl + 'login', userDetails).pipe(
+    return this.http.post(apiUrl + '/login', userDetails).pipe(
       catchError(this.handleError));
   }
 
@@ -79,7 +79,7 @@ export class FetchApiDataService {
 
   // Making the api call to get the User
   getUser(username: string): Observable<any> {
-    const user = JSON.parse(localStorage.getItem('user') || '{}'); // Preguntar
+    const user = JSON.parse(localStorage.getItem('user') || '{}'); // Ask
     return user;
   }
 
@@ -89,7 +89,7 @@ export class FetchApiDataService {
     return user.FavoriteMovies;
   }
 
-  // Making the api call to add a movie to the favourite movies list from a user endpoint
+  // Making the api call to add a movie to the favorite movies list from a user endpoint
   editFavoriteMovies(movie_id: string): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const token = localStorage.getItem('token');
@@ -152,7 +152,6 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
-
 
 
 
