@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, withFetch } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -39,7 +39,7 @@ export class FetchApiDataService {
   // Making the api call for the get of all movies endpoint
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies', {
+    return this.http.get(apiUrl + '/movies', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -53,7 +53,7 @@ export class FetchApiDataService {
   // Making the api call for the get of one movie endpoint
   getOneMovie(title: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies/' + title, {
+    return this.http.get(apiUrl + '/movies/' + title, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -67,7 +67,7 @@ export class FetchApiDataService {
   // Making the api call to get the Director endpoint
   getDirector(directorName: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies/directors/' + directorName, {
+    return this.http.get(apiUrl + '/movies/directors/' + directorName, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -137,7 +137,6 @@ export class FetchApiDataService {
     );
   }
 
-
   //  Making the api call to delete a movie from the User favorite movie list 
   deleteMovie(movie_id: string): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -152,8 +151,6 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
-
-
 
   // Non-typed response extraction
   private extractResponseData(res: any): any {
