@@ -4,6 +4,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ParseTreeResult, Token } from '@angular/compiler';
 import { stringify } from 'querystring';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login-form',
@@ -16,7 +17,8 @@ export class UserLoginFormComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
-    public snackBar: MatSnackBar) {}
+    public snackBar: MatSnackBar,
+    private router: Router) {}
 
   ngOnInit(): void {      
   }
@@ -33,17 +35,18 @@ export class UserLoginFormComponent implements OnInit {
       //   this.snackBar.open(response, 'OK', {
       //     duration: 2000
       //   });
-      // });
-  
+      // });  
       this.fetchApiData.userLogin(this.userData).subscribe({
-        next: (result) => {
-          this.dialogRef.close();
-          console.log(result);
+        // Logic for a successful user registration goes here! (To be implemented)
+        next: (result) => {          
+          console.log("This is the result",result);
           localStorage.setItem('user', JSON.stringify(result.user));
           localStorage.setItem('token', result.token);
+          this.dialogRef.close();   // This will close the modal on success
           this.snackBar.open('user login successfully!', 'OK', {
             duration: 2000
           });
+          this.router.navigate(['movies']);
         },
         error:(result) => {
             this.snackBar.open(result, 'error', {

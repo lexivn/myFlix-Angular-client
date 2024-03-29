@@ -18,15 +18,30 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+// To implement Router like in React
+import { RouterModule, Routes } from '@angular/router';
+// To use icons instead of text
+import { MatIconModule } from '@angular/material/icon';
+import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
 
+const appRoutes: Routes = [
+  { path: 'welcome', component: WelcomePageComponent},
+  { path: 'movies', component: MovieCardComponent},
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    MovieCardComponent,
+    WelcomePageComponent,
+    UserProfileFormComponent
   ],
-  imports: [
+  imports: [    
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -37,7 +52,9 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RouterModule.forRoot(appRoutes),
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()
