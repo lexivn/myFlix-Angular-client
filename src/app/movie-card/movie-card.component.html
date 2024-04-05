@@ -17,12 +17,14 @@
           <button
               mat-button
               color="primary"
+              (click)="openMovieDirectorDialog(movie.Director.Name, movie.Director.Bio)"
           >
               Director
           </button>
           <button
               mat-button
               color="primary"
+              (click)="openMovieDetailsDialog(movie.Description)"
           >
               Synopsis
           </button>

@@ -4,6 +4,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { GenreComponent } from '../genre/genre.component';
 import { DirectorComponent } from '../director/director.component';
+import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
 
 @Component({
@@ -34,24 +35,43 @@ export class MovieCardComponent {
   }
 
   // Show Movie Genre
-  openMovieGenreDialog(name:string, description:string): void {
+  openMovieGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
         Name: name,
         Description: description
       },
-      width:"500px"
+      width: "500px"
     });
   }
 
   // Show Movie Director
-  openMovieDirectorDialog(): void {
+  openMovieDirectorDialog(name: string, bio: string): void {
     this.dialog.open(DirectorComponent, {
-
+      data: {
+        Name: name,
+        Biography: bio
+      },
+      width: "50%"
     });
   }
 
+  // Show Movie Details
+  openMovieDetailsDialog(description: string): void {
+    this.dialog.open(MovieDetailsComponent, {
+      data: {
+        Description: description
+      },
+      width: "50%"
+
+    });
+
+  }
   // Add Movie to your favorite Movie List
+  addToFavoriteMovies(): void {
+
+
+  }
 
 
 }
