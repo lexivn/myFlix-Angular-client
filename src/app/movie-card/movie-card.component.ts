@@ -20,8 +20,8 @@ export class MovieCardComponent {
 
   ngOnInit(): void {
     this.getMovies();
-    this.openMovieGenreDialog();
-    this.openMovieDirectorDialog();
+    // this.openMovieGenreDialog();
+    // this.openMovieDirectorDialog();
   }
 
   // Get all the Movies
@@ -34,9 +34,13 @@ export class MovieCardComponent {
   }
 
   // Show Movie Genre
-  openMovieGenreDialog(): void {
+  openMovieGenreDialog(name:string, description:string): void {
     this.dialog.open(GenreComponent, {
-
+      data: {
+        Name: name,
+        Description: description
+      },
+      width:"500px"
     });
   }
 
