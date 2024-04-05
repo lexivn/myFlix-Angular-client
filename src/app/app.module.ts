@@ -25,10 +25,16 @@ import { RouterModule, Routes } from '@angular/router';
 // To use icons instead of text
 import { MatIconModule } from '@angular/material/icon';
 import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import { GenreComponent } from './genre/genre.component';
+import { DirectorComponent } from './director/director.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent},
   { path: 'movies', component: MovieCardComponent},
+  { path: 'profile', component: UserProfileFormComponent},
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -39,7 +45,10 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
-    UserProfileFormComponent
+    UserProfileFormComponent,
+    GenreComponent,
+    DirectorComponent,
+    MovieDetailsComponent
   ],
   imports: [    
     BrowserModule,
@@ -54,10 +63,12 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,    
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideNativeDateAdapter()
   ],
   bootstrap: [AppComponent]
 })

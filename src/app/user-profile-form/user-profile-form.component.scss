@@ -1,0 +1,22 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-header {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+}
+
+.example-header-label {
+  flex: 1;
+  height: 1em;
+  font-weight: 500;
+  text-align: center;
+}

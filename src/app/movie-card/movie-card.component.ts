@@ -1,6 +1,10 @@
 // src/app/movie-card/movie-card.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FetchApiDataService } from '../fetch-api-data.service'
+import { FetchApiDataService } from '../fetch-api-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { GenreComponent } from '../genre/genre.component';
+import { DirectorComponent } from '../director/director.component';
+
 
 @Component({
   selector: 'app-movie-card',
@@ -9,17 +13,41 @@ import { FetchApiDataService } from '../fetch-api-data.service'
 })
 export class MovieCardComponent {
   movies: any[] = [];
-  constructor(public fetchApiData: FetchApiDataService) { }
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog
+  ) { }
 
-ngOnInit(): void {
-  this.getMovies();
-}
+  ngOnInit(): void {
+    this.getMovies();
+    this.openMovieGenreDialog();
+    this.openMovieDirectorDialog();
+  }
 
-getMovies(): void {
-  this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+  // Get all the Movies
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
     });
   }
+
+  // Show Movie Genre
+  openMovieGenreDialog(): void {
+    this.dialog.open(GenreComponent, {
+
+    });
+  }
+
+  // Show Movie Director
+  openMovieDirectorDialog(): void {
+    this.dialog.open(DirectorComponent, {
+
+    });
+  }
+
+  // Add Movie to your favorite Movie List
+
+
 }
