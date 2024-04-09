@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,8 @@ import {provideNativeDateAdapter} from '@angular/material/core';
 import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
+import { MatToolbarModule  } from '@angular/material/toolbar';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent},
@@ -48,7 +51,8 @@ const appRoutes: Routes = [
     UserProfileFormComponent,
     GenreComponent,
     DirectorComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    NavbarComponentComponent
   ],
   imports: [    
     BrowserModule,
@@ -64,7 +68,9 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),
     MatIconModule,
-    MatDatepickerModule,    
+    MatDatepickerModule, 
+    MatDividerModule,
+    MatToolbarModule   
   ],
   providers: [
     provideAnimationsAsync(),

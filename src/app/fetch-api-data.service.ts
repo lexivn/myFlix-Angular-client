@@ -118,12 +118,13 @@ export class FetchApiDataService {
   }
 
   // Making the api call to add a movie to the favorite movies list from a user endpoint
-  editFavoriteMovies(movie_id: string): Observable<any> {
+  addMovieFavoriteMovies(movie_id: string): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const token = localStorage.getItem('token');
 
-    // user.FavoriteMovies.push(movie_id);
-    // localStorage.setItem('user', JSON.stringify(user));
+    user.FavoriteMovies.push(movie_id);
+    console.log("Pushing the movie_id", movie_id);
+    localStorage.setItem('user', JSON.stringify(user));
 
     return this.http.post(apiUrl + 'users/' + user.Username + 'movies/' + movie_id, {
       headers: new HttpHeaders({
@@ -136,7 +137,7 @@ export class FetchApiDataService {
   }
 
     //  Making the api call to delete a movie from the User favorite movie list 
-    deleteMovie(movie_id: string): Observable<any> {
+    deleteMovieFavoriteMovies(movie_id: string): Observable<any> {
       const user = JSON.parse(localStorage.getItem('user') || '{}');
       const token = localStorage.getItem('token');
       return this.http.delete(apiUrl + `users/${user.Username}/movies/${movie_id}`, {

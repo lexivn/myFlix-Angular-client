@@ -35,7 +35,7 @@ export class MovieCardComponent {
   }
 
   // Show Movie Genre
-  openMovieGenreDialog(name: string, description: string): void {
+  public openMovieGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
         Name: name,
@@ -68,9 +68,8 @@ export class MovieCardComponent {
 
   }
   // Add Movie to your favorite Movie List
-  addToFavoriteMovies(): void {
-
-
+  addToFavoriteMovies(movie_id: string): void {
+    this.fetchApiData.addMovieFavoriteMovies(movie_id);
   }
 
 
