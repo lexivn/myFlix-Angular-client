@@ -1,7 +1,6 @@
 <!-- src/app/movie-card/movie-card.component.html -->
 <app-navbar-component></app-navbar-component>
-<div style="display: flex">
-  
+<div style="display: flex">  
   <p></p>
   <mat-card *ngFor="let movie of movies" style="flex: 1 1 auto">
     <mat-card-header>
@@ -36,7 +35,8 @@
         Synopsis
       </button>
       <button 
-        mat-icon-button (click)="addToFavoriteMovies(movie._id)"
+        mat-icon-button 
+        (click)="addToFavoriteMovies(movie._id)"
         color="warn"
       >
         <mat-icon> favorite_border </mat-icon>

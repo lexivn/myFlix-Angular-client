@@ -8,7 +8,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
 // This import is used to display notifications back to the user
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition
+} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,6 +21,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-registration-form.component.scss']
 })
 export class UserRegistrationFormComponent implements OnInit {
+  // Snack-bar with horizontal and vertical position
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
@@ -30,32 +37,24 @@ export class UserRegistrationFormComponent implements OnInit {
 
   // This is the function responsible for sending the form inputs to the backend
   registerUser(): void {
-    // this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
-    //   // Logic for a successful user registration goes here! (To be implemented)
-    //   this.dialogRef.close(); // This will close the modal on success!
-    //   this.snackBar.open('user registeres successfully!', 'OK', {
-    //     duration: 2000
-    //   });
-    // }, (response) => {
-    //   this.snackBar.open(response, 'OK', {
-    //     duration: 2000
-    //   });
-    // });
-
     this.fetchApiData.userRegistration(this.userData).subscribe({
       next: () => {
         this.dialogRef.close();
-        this.snackBar.open('user registeres successfully!', 'OK', {
-          duration: 2000
-        });
+        this.openSnackBar('user registeres successfully!', 'OK');
       },
-      error:(result) => {
-          this.snackBar.open(result, 'error', {
-            duration: 2000
-          })
+      error: (result) => {
+        this.openSnackBar(result, 'error');
       }
-      
-    })   
+    })
   }
 
+  // Function template for all the SnackBar messages
+  openSnackBar(msg1: string, msg2: string): void {
+    this.snackBar.open(msg1, msg2, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 2000
+    });
+  }
 }
+

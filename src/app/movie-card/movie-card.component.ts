@@ -13,20 +13,19 @@ import { MovieDetailsComponent } from '../movie-details/movie-details.component'
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
-  movies: any[] = [];
+  movies: any[] = [];  
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.getMovies();
-    // this.openMovieGenreDialog();
-    // this.openMovieDirectorDialog();
+    this.getAllMovies();    
   }
 
   // Get all the Movies
-  getMovies(): void {
+  getAllMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
       console.log(this.movies);
@@ -46,11 +45,11 @@ export class MovieCardComponent {
   }
 
   // Show Movie Director
-  openMovieDirectorDialog(name: string, bio: string): void {
+  openMovieDirectorDialog(name: string, biography: string): void {
     this.dialog.open(DirectorComponent, {
       data: {
         Name: name,
-        Biography: bio
+        Biography: biography
       },
       width: "50%"
     });
@@ -69,7 +68,16 @@ export class MovieCardComponent {
   }
   // Add Movie to your favorite Movie List
   addToFavoriteMovies(movie_id: string): void {
-    this.fetchApiData.addMovieFavoriteMovies(movie_id);
+    let res = this.fetchApiData.addMovieFavoriteMovies(movie_id);
+    console.log(res);
+  }
+
+  isFavoriteMovie(movie_id: string): boolean {
+    let user = JSON.parse(localStorage.getItem('user') || '');
+    let res = user.FavoriteMovies.includes(movie_id);
+    console.log(res);
+    return res;
+    
   }
 
 
