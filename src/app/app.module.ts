@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,10 +25,19 @@ import { RouterModule, Routes } from '@angular/router';
 // To use icons instead of text
 import { MatIconModule } from '@angular/material/icon';
 import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import { GenreComponent } from './genre/genre.component';
+import { DirectorComponent } from './director/director.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
+import { MatToolbarModule  } from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent},
   { path: 'movies', component: MovieCardComponent},
+  { path: 'profile', component: UserProfileFormComponent},
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -39,7 +48,11 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
-    UserProfileFormComponent
+    UserProfileFormComponent,
+    GenreComponent,
+    DirectorComponent,
+    MovieDetailsComponent,
+    NavbarComponentComponent
   ],
   imports: [    
     BrowserModule,
@@ -54,10 +67,15 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule, 
+    MatDividerModule,
+    MatToolbarModule,
+    MatGridListModule   
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideNativeDateAdapter()
   ],
   bootstrap: [AppComponent]
 })

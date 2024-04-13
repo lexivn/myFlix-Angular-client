@@ -1,10 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ParseTreeResult, Token } from '@angular/compiler';
 import { stringify } from 'querystring';
-import { Router } from '@angular/router';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-login-form',
@@ -12,49 +16,46 @@ import { Router } from '@angular/router';
   styleUrl: './user-login-form.component.scss'
 })
 export class UserLoginFormComponent implements OnInit {
-  @Input() userData = { Username: '', Password: ''};
+  // Snack-bar with horizontal and vertical position
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  @Input() userData = { Username: '', Password: '' };
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar,
-    private router: Router) {}
+    private router: Router) { }
 
-  ngOnInit(): void {      
+  ngOnInit(): void {
   }
 
-    // This is the function responsible for sending the form inputs to the backend
-    loginUser(): void {
-      // this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
-      //   // Logic for a successful user registration goes here! (To be implemented)
-      //   this.dialogRef.close(); // This will close the modal on success!
-      //   this.snackBar.open('user registeres successfully!', 'OK', {
-      //     duration: 2000
-      //   });
-      // }, (response) => {
-      //   this.snackBar.open(response, 'OK', {
-      //     duration: 2000
-      //   });
-      // });  
-      this.fetchApiData.userLogin(this.userData).subscribe({
-        // Logic for a successful user registration goes here! (To be implemented)
-        next: (result) => {          
-          console.log("This is the result",result);
-          localStorage.setItem('user', JSON.stringify(result.user));
-          localStorage.setItem('token', result.token);
-          this.dialogRef.close();   // This will close the modal on success
-          this.snackBar.open('user login successfully!', 'OK', {
-            duration: 2000
-          });
-          this.router.navigate(['movies']);
-        },
-        error:(result) => {
-            this.snackBar.open(result, 'error', {
-              duration: 2000
-            })
-        }
-        
-      })   
-    }
+  // This is the function responsible for sending the form inputs to the backend
+  loginUser(): void {
+    this.fetchApiData.userLogin(this.userData).subscribe({
+      // Logic for a successful user registration goes here! (To be implemented)
+      next: (result) => {
+        console.log("This is the result", result);
+        localStorage.setItem('user', JSON.stringify(result.user));
+        localStorage.setItem('token', result.token);
+        this.dialogRef.close();   // This will close the modal on success
+        this.openSnackBar('user login successfully!', 'OK');
+        this.router.navigate(['movies']);
+      },
+      error: (result) => {
+        this.openSnackBar(result, 'error');
+      }
+    })
+  }
+
+  // Function template for all the SnackBar messages
+  openSnackBar(msg1: string, msg2: string): void {
+    this.snackBar.open(msg1, msg2, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 2000
+    });
+  }
 
 }
