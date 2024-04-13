@@ -102,5 +102,19 @@ export class UserProfileFormComponent {
       });
     }
   }
+  
+  updateUserAccount() : void{
+    if(confirm('Do you want to update your user account?')) {
+      this.router.navigate(['welcome']).then(() => {
+        localStorage.clear();
+        this.snackBar.open('Your account has been updated', 'OK', {
+          duration: 3000
+        });
+      })
+      // this.fetchApiData.editUser().subscribe((result) => {
+      //   console.log(result);
+      // });
+    }
+  }
 
 }

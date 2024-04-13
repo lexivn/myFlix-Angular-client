@@ -1,5 +1,12 @@
-<mat-toolbar class="navbar" style="margin: auto;">
-  <button mat-button (click)="openMovies()">Home</button>
-  <button mat-button (click)="openProfile()">Profile</button>
-  <button mat-button (click)="LogOut()">LogOut</button>
-</mat-toolbar>
+<mat-grid-list cols="6" rowHeight="120px">
+  <mat-grid-tile [colspan]="1">
+    <img width="150" src="assets/img/logo.png" />
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="5">
+    <mat-toolbar color="primary">
+      <button mat-button (click)="openMovies()">Home</button>
+      <button mat-button (click)="openProfile()">Profile</button>
+      <button mat-button (click)="LogOut()">LogOut</button>
+    </mat-toolbar>
+  </mat-grid-tile>
+</mat-grid-list>

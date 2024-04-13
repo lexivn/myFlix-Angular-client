@@ -32,6 +32,7 @@ import { DirectorComponent } from './director/director.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
 import { MatToolbarModule  } from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent},
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatDatepickerModule, 
     MatDividerModule,
-    MatToolbarModule   
+    MatToolbarModule,
+    MatGridListModule   
   ],
   providers: [
     provideAnimationsAsync(),

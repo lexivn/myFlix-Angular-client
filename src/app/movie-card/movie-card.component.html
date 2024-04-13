@@ -1,7 +1,6 @@
 <!-- src/app/movie-card/movie-card.component.html -->
 <app-navbar-component></app-navbar-component>
-<div style="display: flex">  
-  <p></p>
+<div style="display: flex">    
   <mat-card *ngFor="let movie of movies" style="flex: 1 1 auto">
     <mat-card-header>
       <mat-card-title>{{ movie.Title }}</mat-card-title>
