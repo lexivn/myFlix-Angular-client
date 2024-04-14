@@ -1,17 +1,27 @@
+.toolbar-container {
+  // display: flex;
+  // height: 120px;
+}
 button {
   font-size: 18px;
   text-decoration: none;
   color: white;
   margin: 20px;
-  margin-top: 80px;
+  // margin-top: 80px;
 }
 button:hover, button:active{
   color: lightgray;
 }
 
 mat-toolbar{
-  background-color: #272030;
-  border-radius: 8px;  
+  background-color: #272030; 
+  height: 120px;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap; 
+  justify-content: space-between flex-start; 
+  align-items: center;
+  margin: auto;  
 }
 
 // @media(max-width: 959px){
@@ -19,9 +29,3 @@ mat-toolbar{
 //       border-radius: 0px;
 //   }
 // }
-
-mat-grid-list {  
-  background-color: #272030;
-  border-radius: 10px;
-  margin: 12px 12px;  
-}
