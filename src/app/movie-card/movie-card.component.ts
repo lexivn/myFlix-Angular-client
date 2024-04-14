@@ -68,16 +68,26 @@ export class MovieCardComponent {
   }
   // Add Movie to your favorite Movie List
   addToFavoriteMovies(movie_id: string): void {
-    let res = this.fetchApiData.addMovieFavoriteMovies(movie_id);
-    console.log(res);
+    if (!this.isFavoriteMovie(movie_id)) {
+       console.log('Adding the movie_id: ', movie_id);
+       this.fetchApiData.addMovieFavoriteMovies(movie_id);
+    }
+  }
+  
+  // Remove Movie from favorite Movie List
+  removeMovieFromFavorite(movie_id: string): void {
+    if( this.isFavoriteMovie(movie_id)) {
+      console.log('Removing movie_id: ', movie_id);
+      this.fetchApiData.deleteMovieFavoriteMovies(movie_id);      
+    }
   }
 
+  // Check if a movie is in the favorite movie list
   isFavoriteMovie(movie_id: string): boolean {
     let user = JSON.parse(localStorage.getItem('user') || '');
     let res = user.FavoriteMovies.includes(movie_id);
     console.log(res);
-    return res;
-    
+    return res;    
   }
 
 

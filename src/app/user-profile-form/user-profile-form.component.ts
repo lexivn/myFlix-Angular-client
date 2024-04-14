@@ -81,6 +81,14 @@ export class UserProfileFormComponent {
       // .subscribe(user => this.user = user);     
     }    
   }
+  
+  removeMovieFromFavorite(movie_id: string): void {
+    if( this.isFavoriteMovie(movie_id)) {
+      console.log('Removing movie_id: ', movie_id);
+      this.fetchApiData.deleteMovieFavoriteMovies(movie_id)
+      .subscribe(user => this.user = user);
+    }
+  }
 
   isFavoriteMovie(movie_id: string): boolean {
     let user = JSON.parse(localStorage.getItem('user') || '{}');
