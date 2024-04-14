@@ -6,7 +6,6 @@ import { GenreComponent } from '../genre/genre.component';
 import { DirectorComponent } from '../director/director.component';
 import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
-
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',

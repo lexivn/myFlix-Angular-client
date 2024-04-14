@@ -33,7 +33,6 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
 import { MatToolbarModule  } from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent},
@@ -72,8 +71,7 @@ const appRoutes: Routes = [
     MatDatepickerModule, 
     MatDividerModule,
     MatToolbarModule,
-    MatGridListModule,
-    FlexLayoutModule
+    MatGridListModule    
   ],
   providers: [
     provideAnimationsAsync(),
