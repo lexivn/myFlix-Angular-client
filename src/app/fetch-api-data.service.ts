@@ -95,7 +95,7 @@ export class FetchApiDataService {
    * @throws error
    */
 
-  public getOneUser() {
+  public getOneUser(): Observable<any> {
     // let user = JSON.parse(localStorage.getItem('user') || '');
     const u = localStorage.getItem('user');
     let user = JSON.parse(u || '');
@@ -122,7 +122,7 @@ export class FetchApiDataService {
     localStorage.setItem('user', JSON.stringify(user));
 
     console.log(apiUrl + 'users/' + user.Username + '/movies/' + movie_id);   
-    return this.http.post(apiUrl + 'users/' + user.Username + '/movies/' + movie_id, {
+    return this.http.post(apiUrl + 'users/' + user.Username + '/movies/' + movie_id, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
