@@ -1,6 +1,9 @@
-.toolbar-container {
-  // display: flex;
-  // height: 120px;
+.mat-toolbar-div {
+  display: flex;
+  flex: 1;
+  // flex-wrap: wrap; 
+  justify-content: space-between flex-end; 
+  align-items: center;
 }
 button {
   font-size: 18px;
@@ -14,12 +17,8 @@ button:hover, button:active{
 }
 
 mat-toolbar{
-  background-color: #272030; 
-  height: 120px;
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap; 
-  justify-content: space-between flex-start; 
-  align-items: center;
+  background-color: #70018f; 
+  height: 120px;  
+  justify-content: space-between;  
   margin: auto;  
 }
