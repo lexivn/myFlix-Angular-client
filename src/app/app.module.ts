@@ -26,18 +26,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
+import { provideNativeDateAdapter } from '@angular/material/core';
 import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
-import { MatToolbarModule  } from '@angular/material/toolbar';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const appRoutes: Routes = [
-  { path: 'welcome', component: WelcomePageComponent},
-  { path: 'movies', component: MovieCardComponent},
-  { path: 'profile', component: UserProfileFormComponent},
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: UserProfileFormComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -54,7 +54,7 @@ const appRoutes: Routes = [
     MovieDetailsComponent,
     NavbarComponentComponent
   ],
-  imports: [    
+  imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -68,10 +68,10 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),
     MatIconModule,
-    MatDatepickerModule, 
+    MatDatepickerModule,
     MatDividerModule,
     MatToolbarModule,
-    MatGridListModule    
+    MatGridListModule
   ],
   providers: [
     provideAnimationsAsync(),

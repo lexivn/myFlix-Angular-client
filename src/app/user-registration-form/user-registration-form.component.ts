@@ -14,7 +14,12 @@ import {
   MatSnackBarVerticalPosition
 } from '@angular/material/snack-bar';
 
-
+/**
+* @description Component representing the user registration form.
+* @selector 'app-user-registration-form'
+* @templateUrl './user-registration-form.component.html'
+* @styleUrls ['./user-registration-form.component.scss']
+*/
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
@@ -27,6 +32,12 @@ export class UserRegistrationFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
+  /**
+    * @constructor
+    * @param {FetchApiDataService} fetchApiData - Service for user registration API calls.
+    * @param {MatDialogRef<UserRegistrationFormComponent>} dialogRef - Reference to the dialog for closing.
+    * @param {MatSnackBar} snackBar - Angular Material's MatSnackBar service for notifications.
+    */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
@@ -35,17 +46,24 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+    * @description Sends user registration form information to the backend.
+    * Closes the dialog on success and displays a success message. Shows an error message on failure.
+  */
   registerUser(): void {
-    this.fetchApiData.userRegistration(this.userData).subscribe({
-      next: () => {
-        this.dialogRef.close();
-        this.openSnackBar('user registeres successfully!', 'OK');
-      },
-      error: (result) => {
-        this.openSnackBar(result, 'error');
-      }
-    })
+    this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
+      // Logic for a successful user registration goes here! (To be implemented)
+      this.dialogRef.close(); // This will close the modal on success!
+      console.log(response);
+      this.snackBar.open('user registered successfully', 'OK', {
+        duration: 2000
+      });
+    }, (response) => {
+      console.log(response)
+      this.snackBar.open(response, 'OK', {
+        duration: 2000
+      });
+    });
   }
 
   // Function template for all the SnackBar messages
