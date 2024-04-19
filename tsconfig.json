@@ -28,5 +28,9 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/app/fetch-api-data.service.ts"],
+    "out": "docs"
+}
 }
