@@ -46,7 +46,12 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color="primary" style="margin-right: 8px">
+      <button 
+        mat-flat-button
+        color="primary"
+        style="margin-right: 8px"
+        (click)="updateUserAccount()"        
+        >
         Update User
       </button>
       <button

@@ -10,6 +10,12 @@ import {
   MatSnackBarVerticalPosition
 } from '@angular/material/snack-bar';
 
+/**
+* @description Component representing the user registration form.
+* @selector 'app-user-registration-form'
+* @templateUrl './user-registration-form.component.html'
+* @styleUrls ['./user-registration-form.component.scss']
+*/
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -22,6 +28,12 @@ export class UserLoginFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '' };
 
+  /**
+   * @constructor
+   * @param {FetchApiDataService} fetchApiData - Service for user registration API calls.
+   * @param {MatDialogRef<UserRegistrationFormComponent>} dialogRef - Reference to the dialog for closing.
+   * @param {MatSnackBar} snackBar - Angular Material's MatSnackBar service for notifications.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -31,7 +43,10 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * @description Sends user registration form information to the backend.
+   * Closes the dialog on success and displays a success message. Shows an error message on failure.
+   */  
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe({
       // Logic for a successful user registration goes here! (To be implemented)
@@ -49,7 +64,13 @@ export class UserLoginFormComponent implements OnInit {
     })
   }
 
-  // Function template for all the SnackBar messages
+  
+  /**
+   * @function tration form information to the backend.
+   * @param {string} msg1
+   * @param {string} msg2
+   * Closes the dialog on success and displays a success message. Shows an error message on failure.
+   */
   openSnackBar(msg1: string, msg2: string): void {
     this.snackBar.open(msg1, msg2, {
       horizontalPosition: this.horizontalPosition,
@@ -57,5 +78,4 @@ export class UserLoginFormComponent implements OnInit {
       duration: 2000
     });
   }
-
 }
