@@ -60,6 +60,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Author
 
 - **Alex Soto**
+  [![text](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alexisedson/)
 
 ## License
 
