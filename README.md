@@ -5,15 +5,26 @@ Welcome to MovieApiAngularClient, a portfolio project showcasing my skills in bu
 ## Overview
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
-+Angular Version: 17.13.1
-+Angular CLI Version: 17.3.1
+**+Angular Version:** 17.13.1
+**+Angular CLI Version:** 17.3.1
 
 ## Project Higlights
 
 **Single page application (SPA):** The application follows a single-page application (SPA), interacting with the user by dynamically rewriting the current web page with new data from the web server, providing a seamless and intuitive user experience.
 **Google Material Design:** Use Angular Material for a visually appealng and responsive design.
 
-## Technoligues Used
+## Technoligies Used
+
+**+Angular:** A powerful web application framework.
+**+Angular Material:** A UI component library for Angular applications.
+**+RxJS:** A library for reactive programming using Observables.
+
+### Getting Started
+
++1 Clone the repository: git clone https://github.com/lexivn/myFlix-Angular-client.git
++2 Install dependencies: npm install
++3 Run the development server: ng serve
++4 Navigate to http://localhost:4200/ to view the application.
 
 ## Development server
 
