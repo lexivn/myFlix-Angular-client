@@ -65,7 +65,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
 </div>
-  [![text](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alexisedson/)
+
 
 ## License
 
