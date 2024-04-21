@@ -15,18 +15,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Technoligies Used
 
-**+Angular:** A powerful web application framework.
-
-**+Angular Material:** A UI component library for Angular applications.
-
-**+RxJS:** A library for reactive programming using Observables.
+-**Angular:** A powerful web application framework. -**Angular Material:** A UI component library for Angular applications. -**RxJS:** A library for reactive programming using Observables.
 
 ### Getting Started
 
-1 Clone the repository: git clone https://github.com/lexivn/myFlix-Angular-client.git
-2 Install dependencies: npm install
-3 Run the development server: ng serve
-4 Navigate to http://localhost:4200/ to view the application.
+1. Clone the repository: `git clone https://github.com/lexivn/myFlix-Angular-client.git`
+2. Install dependencies: `npm install`
+3. Run the development server: `ng serve`
+4. Navigate to http://localhost:4200/ to view the application.
+
+## Deployment
+
+Deploy the application using the following command:
+
+`bash npx angular-cli-ghpages --dir=dist/movie-api-angular-client`
 
 ## Development server
 
@@ -51,3 +53,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Author
+
+- **Alex Soto**
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
