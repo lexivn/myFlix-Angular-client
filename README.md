@@ -1,6 +1,19 @@
 # MyFlixAngularClient
 
+Welcome to MovieApiAngularClient, a portfolio project showcasing my skills in building Angular applications. This project serves as a client for the Movie API, displaying movie data with a user-friendly interface using Angular Material.
+
+## Overview
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
++Angular Version: 17.13.1
++Angular CLI Version: 17.3.1
+
+## Project Higlights
+
+**Single page application (SPA):** The application follows a single-page application (SPA), interacting with the user by dynamically rewriting the current web page with new data from the web server, providing a seamless and intuitive user experience.
+**Google Material Design:** Use Angular Material for a visually appealng and responsive design.
+
+## Technoligues Used
 
 ## Development server
 
