@@ -16,15 +16,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Technoligies Used
 
 **+Angular:** A powerful web application framework.
+
 **+Angular Material:** A UI component library for Angular applications.
+
 **+RxJS:** A library for reactive programming using Observables.
 
 ### Getting Started
 
-+1 Clone the repository: git clone https://github.com/lexivn/myFlix-Angular-client.git
-+2 Install dependencies: npm install
-+3 Run the development server: ng serve
-+4 Navigate to http://localhost:4200/ to view the application.
+1 Clone the repository: git clone https://github.com/lexivn/myFlix-Angular-client.git
+2 Install dependencies: npm install
+3 Run the development server: ng serve
+4 Navigate to http://localhost:4200/ to view the application.
 
 ## Development server
 
