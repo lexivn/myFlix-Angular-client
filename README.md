@@ -1,12 +1,13 @@
-# MyFlixAngularClient
+# **MyFlix Angular Client**
 
 Welcome to MovieApiAngularClient, a portfolio project showcasing my skills in building Angular applications. This project serves as a client for the Movie API, displaying movie data with a user-friendly interface using Angular Material.
 
-## Overview
+## **Overview**
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
-**+Angular Version:** 17.13.1
-**+Angular CLI Version:** 17.3.1
+
+- **Angular Version:** 17.13.1
+- **Angular CLI Version:** 17.3.1
 
 ## Project Higlights
 
@@ -15,9 +16,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Technoligies Used
 
--**Angular:** A powerful web application framework. -**Angular Material:** A UI component library for Angular applications. -**RxJS:** A library for reactive programming using Observables.
+- **Angular:** A powerful web application framework.
+- **Angular Material:** A UI component library for Angular applications.
+- **RxJS:** A library for reactive programming using Observables.
 
-### Getting Started
+## Getting Started
 
 1. Clone the repository: `git clone https://github.com/lexivn/myFlix-Angular-client.git`
 2. Install dependencies: `npm install`
