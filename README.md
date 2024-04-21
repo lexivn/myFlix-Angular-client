@@ -2,7 +2,7 @@
 
 Welcome to MovieApiAngularClient, a portfolio project showcasing my skills in building Angular applications. This project serves as a client for the Movie API, displaying movie data with a user-friendly interface using Angular Material.
 
-## **Overview**
+## Overview
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
 
@@ -60,6 +60,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Author
 
 - **Alex Soto**
+  [![text](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alexisedson/)
 
 ## License
 
