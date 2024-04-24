@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Project Higlights
 
 **Single page application (SPA):** The application follows a single-page application (SPA), interacting with the user by dynamically rewriting the current web page with new data from the web server, providing a seamless and intuitive user experience.
-**Google Material Design:** Use Angular Material for a visually appealng and responsive design.
+**Google Material Design:** Use Angular Material for a visually appealing and responsive design.
 
 ## Technoligies Used
 
